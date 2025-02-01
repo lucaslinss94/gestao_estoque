@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-md py-1"> <!--Barra de navegação-->
+	<div class="container">
+		<a href="" class="navbar-brand d-flex align-items-center">
+			<i class="bi bi-box2 fs-1 me-2"></i>
+			Gestão de Estoque
+		</a>
+		{% if user.is_authenticated %}
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse me-1" id="menuNavbar">
+			<div class="navbar-nav ms-auto">
+				<a href="{% url 'home' %}" class="nav-link"><i class="bi bi-house"></i> Home</a>
+				<div class="dropdown">
+					<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-arrow-down-up"></i>
+						Movimento</a>
+					<ul class="dropdown-menu dropdown-menu-end">
+						{% if perms.inflows.view_inflow %}
+							<li><a href="{% url 'inflow_list' %}" class="dropdown-item"><i class="bi bi-arrow-up"></i> Entradas</a></li>
+						{% endif %}
+						
+						{% if perms.outflows.view_outflow %}
+							<li><a href="{% url 'outflow_list' %}" class="dropdown-item"><i class="bi bi-arrow-down"></i> Saídas</a></li>
+						{% endif %}
+					</ul>
+				</div>
+				<div class="dropdown">
+					<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-ui-checks-grid"></i>
+						Cadastros</a>
+					<ul class="dropdown-menu">
+						{% if perms.products.view_product %}
+							<li><a href="{% url 'product_list' %}" class="dropdown-item"><i class="bi bi-basket"></i> Produtos</a></li>
+						{% endif %}
+
+						{% if perms.brands.view_brand %}
+							<li><a href="{% url 'brand_list' %}" class="dropdown-item"><i class="bi bi-shop"> </i>Marcas</a></li>
+						{% endif %}
+						
+						{% if perms.categories.view_category %}
+							<li><a href="{% url 'category_list' %}" class="dropdown-item"><i class="bi bi-tags"></i> Categorias</a></li>
+						{% endif %}
+						
+						{% if perms.suppliers.view_supplier %}
+							<li><a href="{% url 'supplier_list' %}" class="dropdown-item"><i class="bi bi-truck"></i> Fornecedores</a></li>
+						{% endif %}
+					</ul>
+				</div>
+				<div class="dropdown">
+					<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-person-circle"></i></a>
+					<ul class="dropdown-menu dropdown-menu-end">
+						<li><a href="#" class="dropdown-item">Trocar Senha</a></li>
+						<li><a href="#" class="dropdown-item">Mudar tema</a></li>
+						<li><a href="#" class="dropdown-item">Contato</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							{% if user.is_authenticated %}
+							<form action="{% url 'logout' %}" method="POST" id="logou-form" class="px-1 align-middle">
+								{% csrf_token %}
+								<button type="submit" class="btn btn-link text-decoration-none text-reset align-middle">
+									<i class="bi bi-box-arrow-right"></i><span> Sair</span>
+								</button>
+							</form>
+							{% endif %}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</nav>

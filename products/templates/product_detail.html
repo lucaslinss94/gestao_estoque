@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+        <h3 class="display-6">Detalhes do Produto</h3>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary" style="height: 2.5em;"><i class="bi bi-arrow-return-left"></i></a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">{{ object.title }}</h3>
+                <p class="card-text">Categoria: {{ object.category }}</p>
+                <p class="card-text">Marca: {{ object.brand }}</p>
+                <p class="card-text">{{ object.description }}</p>
+                <p class="card-text">Nº de série: <strong>{{ object.serie_number }}</strong></p>
+                <p class="card-text">Preço de custo: <strong>R$ {{ object.cost_price }}</strong></p>
+                <p class="card-text">Preço de venda: <strong>R$ {{ object.selling_price }}</strong></p>
+                <p class="card-text">Qtd em estoque: <strong>{{ object.quantity }}</strong></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

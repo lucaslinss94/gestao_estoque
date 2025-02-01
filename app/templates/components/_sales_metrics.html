@@ -1,0 +1,43 @@
+<div class="card mt-4">
+	<div class="card-body">
+		<div class="row">
+
+			<div class="col-md-6 col-lg-3 my-2">
+				<div class="card bg-primary-subtle">
+					<div class="card-body">
+						<h5 class="card-title">Qtd. de Vendas</h5>
+						<p class="card-text font-wheight-bold fs-3">{{ sales_metrics.total_sales}}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-3 my-2">
+				<div class="card bg-danger-subtle">
+					<div class="card-body">
+						<h5 class="card-title">Produtos vendidos</h5>
+						<p class="card-text font-wheight-bold fs-3">{{ sales_metrics.total_products_sold }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-3 my-2">
+				<div class="card bg-success-subtle">
+					<div class="card-body">
+						<h5 class="card-title">Valor das vendas</h5>
+						<p class="card-text font-wheight-bold fs-3">R$ {{ sales_metrics.total_sales_value }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-lg-3 my-2">
+				<div class="card bg-warning-subtle">
+					<div class="card-body">
+						<h5 class="card-title">Lucro das vendas</h5>
+						<p class="card-text font-wheight-bold fs-3">R$ {{ sales_metrics.total_sales_profit }}</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
