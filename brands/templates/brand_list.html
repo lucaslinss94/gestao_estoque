@@ -21,7 +21,7 @@ SGE - Marcas
     </div>
     {% if perms.brands.add_brand %}
     <div class="">
-        <a href="{% url 'brand_create' %}" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i> Nova Marca</a>
+        <a href="{% url 'brand_create' %}" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i><span class="d-none d-md-inline"> Nova Marca</span><span class="d-inline d-md-none"> Nova</span></a>
     </div>
     {% endif %}
 </div>
