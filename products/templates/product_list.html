@@ -18,7 +18,7 @@ SGE - Produtos
     <div class="d-flex">
         <form method="GET" action="{% url 'product_list' %}" class="me-2">
             <div class="input-group">
-                <input type="text" class="form-control" name="title" placeholder="Título" value="{{ request.GET.title }}" style="min-width: 20vw";>
+                <input type="text" class="form-control" name="title" placeholder="Título" value="{{ request.GET.title }}" style="min-width: 10vw";>
                 <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
             </div>
         </form>
@@ -27,7 +27,7 @@ SGE - Produtos
 
     {% if perms.products.add_product %}
     <div class="">
-        <a href="{% url 'product_create' %}" class="btn btn-success rounded-pill"><i class="bi bi-plus"></i><span class="d-none d-md-inline">Novo Produto</span><span class="d-inline d-md-none">Novo</span></a>
+        <a href="{% url 'product_create' %}" class="btn btn-success rounded-pill ms-2"><span class="d-none d-md-inline"><i class="bi bi-plus"></i> Novo Produto</span><span class="d-inline d-md-none"><i class="bi bi-plus"></i></span></a>
     </div>
     {% endif %}
 </div>
